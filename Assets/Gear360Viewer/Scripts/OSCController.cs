@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using LitJson;
 using System.IO;
+using UnityEngine.UI;
 
 // https://developers.google.com/streetview/open-spherical-camera/guides/osc/commands/execute
 
@@ -117,11 +118,13 @@ public class OSCController : MonoBehaviour
     {
         // infoデータをダウンロードしてみる
         //StartCoroutine(ExecGetInfo());
-        Capture(); 
+        //Capture(); 
     }
 
-    private void Capture()
+    public void Capture()
     {
+        _closeButton.gameObject.SetActive(false);
+        _captureButton.gameObject.SetActive(false);
         StartCoroutine(ExecCapture());
     }
 
@@ -279,9 +282,16 @@ public class OSCController : MonoBehaviour
         {
             MonoBehaviour.Destroy(_sphereMaterial.mainTexture); 
         }
-        _sphereMaterial.mainTexture = texture; 
+        _sphereMaterial.mainTexture = texture;
 
+        _captureButton.gameObject.SetActive(true);
+        _closeButton.gameObject.SetActive(true);
 
+    }
+
+    public void Close()
+    {
+        Application.Quit(); 
     }
 
     private string _resultJson;
@@ -290,5 +300,11 @@ public class OSCController : MonoBehaviour
     private string _sessionId = null;
 
     [SerializeField]
-    Material _sphereMaterial; 
+    Material _sphereMaterial;
+
+    [SerializeField]
+    Button _captureButton;
+
+    [SerializeField]
+    Button _closeButton;
 }

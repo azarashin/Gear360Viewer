@@ -81,6 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Gear360Viewer\Scripts\CameraController.cs" />
     <Compile Include="Assets\Gear360Viewer\Scripts\OSCController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Gear360Viewer/Scenes/main.unity
+    guid: faf7bba3f8ceab948ae8f1f4a2b5d9b0
