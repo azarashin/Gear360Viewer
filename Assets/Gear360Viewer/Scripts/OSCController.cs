@@ -119,6 +119,23 @@ public class OSCController : MonoBehaviour
         // infoデータをダウンロードしてみる
         //StartCoroutine(ExecGetInfo());
         //Capture(); 
+
+        UniAndroidPermission.IsPermitted(AndroidPermission.WRITE_EXTERNAL_STORAGE);
+        UniAndroidPermission.RequestPermission(AndroidPermission.WRITE_EXTERNAL_STORAGE, OnAllow, OnDeny, OnDenyAndNeverAskAgain);
+    }
+    private void OnAllow()
+    {
+        // execute action that uses permitted function.
+    }
+
+    private void OnDeny()
+    {
+        // back screen / show warnking window
+    }
+
+    private void OnDenyAndNeverAskAgain()
+    {
+        // show warning window and open app permission setting page
     }
 
     public void Capture()
